@@ -129,7 +129,7 @@ func Example_makePNG() {
 
 	// Create RGB Palette image
 	for x := 0; x < width; x++ {
-		rgb := colormap.BGRUint8(float32(x) / float32(width))
+		rgb := colormap.RGBUint8(float32(x) / float32(width))
 		c := color.RGBA{rgb[0], rgb[1], rgb[2], 0xff}
 		for y := 0; y < height; y++ {
 			img.Set(x, y, c)
@@ -137,8 +137,8 @@ func Example_makePNG() {
 	}
 
 	// Write out RGB colorbar
-	f, _ := os.Create("RGB.png")
-	png.Encode(f, img)
+	f2, _ := os.Create("RGB.png")
+	png.Encode(f2, img)
 
 	// Create RGB Palette image
 	for x := 0; x < width; x++ {
@@ -150,7 +150,7 @@ func Example_makePNG() {
 	}
 
 	// Write out BGR colorbar
-	f, _ = os.Create("BGR.png")
-	png.Encode(f, img)
+	f1, _ := os.Create("BGR.png")
+	png.Encode(f1, img)
 	// Output:
 }
