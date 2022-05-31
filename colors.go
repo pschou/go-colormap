@@ -21,18 +21,18 @@ func BGRUint16(n float64) (rgb []uint16) {
 func RGBUint8(n float32) (rgb []uint8) {
 	max := float32(255)
 	return []uint8{
-		uint8(trapUint8(n+0.25)*max + 0.25),
-		uint8(trapUint8(n)*max + 0.25),
-		uint8(trapUint8(n-0.25)*max + 0.25),
+		uint8(trap32(n+0.25)*max + 0.25),
+		uint8(trap32(n)*max + 0.25),
+		uint8(trap32(n-0.25)*max + 0.25),
 	}
 }
 
 func BGRUint8(n float32) (rgb []uint8) {
 	max := float32(255)
 	return []uint8{
-		uint8(trapUint8(n-0.25)*max + 0.25),
-		uint8(trapUint8(n)*max + 0.25),
-		uint8(trapUint8(n+0.25)*max + 0.25),
+		uint8(trap32(n-0.25)*max + 0.25),
+		uint8(trap32(n)*max + 0.25),
+		uint8(trap32(n+0.25)*max + 0.25),
 	}
 }
 
@@ -48,7 +48,7 @@ func trap64(n float64) float64 {
 	}
 	return 1
 }
-func trapUint8(n float32) float32 {
+func trap32(n float32) float32 {
 	if n <= 0.125 || n >= 0.875 {
 		return 0
 	}

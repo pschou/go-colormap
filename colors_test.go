@@ -120,7 +120,7 @@ func TestRGBUint16(t *testing.T) {
 
 func Example_makePNG() {
 	width := 512
-	height := 100
+	height := 50
 
 	upLeft := image.Point{0, 0}
 	lowRight := image.Point{width, height}
@@ -131,6 +131,7 @@ func Example_makePNG() {
 	for x := 0; x < width; x++ {
 		rgb := colormap.RGBUint8(float32(x) / float32(width))
 		c := color.RGBA{rgb[0], rgb[1], rgb[2], 0xff}
+		//fmt.Println(rgb)
 		for y := 0; y < height; y++ {
 			img.Set(x, y, c)
 		}
@@ -139,6 +140,8 @@ func Example_makePNG() {
 	// Write out RGB colorbar
 	f2, _ := os.Create("RGB.png")
 	png.Encode(f2, img)
+
+	img = image.NewRGBA(image.Rectangle{upLeft, lowRight})
 
 	// Create RGB Palette image
 	for x := 0; x < width; x++ {
@@ -152,5 +155,6 @@ func Example_makePNG() {
 	// Write out BGR colorbar
 	f1, _ := os.Create("BGR.png")
 	png.Encode(f1, img)
+
 	// Output:
 }
