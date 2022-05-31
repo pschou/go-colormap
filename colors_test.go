@@ -41,7 +41,7 @@ func TestRGBUint8(t *testing.T) {
 	}
 }
 func TestBGRUint16(t *testing.T) {
-	for i := 0; i < 65535; i++ {
+	for i := 0; i < 65536; i++ {
 		rgb := BGRUint16(float64(i) / 65535)
 		rev := RevBGRUint16(rgb) * 65535
 		if int64(i)*100 != int64(rev*100+0.5) {
@@ -51,7 +51,7 @@ func TestBGRUint16(t *testing.T) {
 	}
 }
 func TestRGBUint16(t *testing.T) {
-	for i := 0; i < 65535; i++ {
+	for i := 0; i < 65536; i++ {
 		rgb := RGBUint16(float64(i) / 65535)
 		rev := RevRGBUint16(rgb) * 65535
 		if int64(i)*100 != int64(rev*100+0.5) {
