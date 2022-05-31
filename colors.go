@@ -1,4 +1,4 @@
-package colors
+package colormap
 
 func RGBUint16(n float64) (rgb []uint16) {
 	max := float64(65535)
